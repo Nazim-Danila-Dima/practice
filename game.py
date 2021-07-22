@@ -1,18 +1,20 @@
 import pygame
 import random
+import pyautogui
 from os import path
+
 
 # Цвета и параметры
 RED = (255, 0, 0)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
-WIDTH = 800
-HEIGHT = 600
+WIDTH = 1920
+HEIGHT = 1080
 
 # Юзаем pygame
 pygame.init()
 pygame.mixer.init()
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
+screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
 pygame.display.set_caption("SIM ROBOT")
 
 
@@ -22,6 +24,8 @@ def draw_win():
     pygame.draw.rect(screen, (171, 156, 169), (0, 0, WIDTH, HEIGHT))
     pygame.draw.circle(screen, BLACK, (70, 80), 20, 0)
     pygame.draw.line(screen, RED, (170, 240), (480, 530), 11)
+    picture1 = pyautogui.screenshot()
+    picture1.save(r"c:\openCV")
 
 
 # цикл приложения
