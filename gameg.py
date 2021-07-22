@@ -1,3 +1,5 @@
+import os.path
+
 import pygame
 import random
 import pyautogui
@@ -24,8 +26,7 @@ def draw_win():
     pygame.draw.rect(screen, (171, 156, 169), (0, 0, WIDTH, HEIGHT))
     pygame.draw.circle(screen, BLACK, (70, 80), 20, 0)
     pygame.draw.line(screen, RED, (170, 240), (480, 530), 11)
-    picture1 = pyautogui.screenshot()
-    picture1.save(r"c:\openCV")
+
 
 
 # цикл приложения
@@ -33,7 +34,7 @@ run = True
 while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run = False
+           run = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RETURN:  # включение робота через enter
                 robot.on_robot()
@@ -43,6 +44,6 @@ while run:
 
     draw_win()
     pygame.display.flip()
-
+pygame.image.save(screen, os.path.join('OpenCV','1.jpg'))
 pygame.quit()
 quit()
